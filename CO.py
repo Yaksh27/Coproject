@@ -47,7 +47,7 @@ def errorhandling(x):
             check=assemblylist[j][checkn-1:checkn]
             ll=len(assemblylist[0])
 
-            if assemblylist[j][0:1]=="$":
+            if assemblylist[j][0:1]=="$" and assemblylist[j][1:].rstrip().isdecimal():
                 e=int(assemblylist[j][1:].rstrip())
                 if len(bin(e)[2:])>8:
                     errornumbers=1
@@ -230,7 +230,7 @@ if x==0:
     for i in range(0,n):
         w=''
         MachineLanguage=''
-        assemblylist=abcd.split()
+        assemblylist=abcd[i].split()
         u=len(assemblylist)
         x=[]
         a=''
