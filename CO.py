@@ -14,22 +14,16 @@ def errorhandling(x):
     global labels
     global d
     global errornumbers
-    global vcount
     varcount=0
     linecount=-1
     hltcount=0
     global abcd
-    for line in sys.stdin:
+    for line in fileinput.input():
         abcd.append(line.rstrip())
     #print(abcd)
     n=len(abcd)
     errorlinecount=0
     assemblylist=[]
-    if n>256:
-        print("ERROR: input more than 256 lines")
-        return 1
-    if vcount>256:
-        print("ERROR: variables more than 256")
     for i in range(0,n):
         #print(i)
         assemblylist=abcd[i].split()
@@ -182,7 +176,6 @@ def testvar(n):
                 varcount=varcount+1
     return varcount
 varcount=testvar(1)
-vcount=varcount
 def final(MachineLanguage):
     n=len(MachineLanguage)
     h=16-n
