@@ -84,10 +84,10 @@ def errorhandling(x):
                     varcount=varcount+1
                     p=[assemblylist[j+1].rstrip()]
                     variables=variables+p
-            if varcount==0:
-                errornumbers=1
-                print("Error: Variables not defined in the begining at",assemblylist,"in",assemblylist[j])
-                varcount=varcount+1
+            # if varcount==0:
+            #     errornumbers=1
+            #     print("Error: Variables not defined in the begining at",assemblylist,"in",assemblylist[j])
+            #     varcount=varcount+1
 
             if assemblylist[j]=="hlt":
                 hltcount=hltcount+1
@@ -153,8 +153,7 @@ def errorhandling(x):
     if hltcount==0:
         errornumbers=1
         print("Error: No hlt instruction given")
-    if errornumbers==0:
-        print("NO ERRORS DETECTED , WE DONE BOYS!!!")
+
     return errornumbers
 def testvar(n):
     varcount=0
@@ -308,3 +307,4 @@ if x==0:
                         MachineLanguage=MachineLanguage+Identify(w.rstrip())
                         MachineLanguage=MachineLanguage+"00000000000"
                     print(MachineLanguage)
+                    
