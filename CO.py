@@ -163,7 +163,7 @@ def testvar(n):
     for i in range(0,n):
         w=''
         MachineLanguage=''
-        assemblylistq=abcd.split()
+        assemblylistq=abcd[i].split()
         u=len(assemblylistq)
         x=[]
         a=''
