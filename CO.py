@@ -1,6 +1,6 @@
 import sys
 import fileinput
-d={"add":"10000","sub":"10001","mov":"10010", "ld": "10100", "st": "10101", "mul":"10110","div":"10111", "rs":"11000","ls":"11001","xor":"11010","or": "11011","not":"11101","cmp":"11110","jmp":"11111","jlt":"01100","jgt":"01101","je":"01111","hlt":"01010","R0":"000","R1":"001","R2":"010","R3":"011","R4":"100","R5":"101","R6":"110","FLAGS":"111"}
+d={"add":"10000","sub":"10001","mov":"10010", "ld": "10100", "st": "10101", "mul":"10110","div":"10111", "rs":"11000","ls":"11001","xor":"11010","or": "11011","not":"11101","cmp":"11110","jmp":"11111","jlt":"01100","jgt":"01101","je":"01111","hlt":"01010","R0":"000","R1":"001","R2":"010","R3":"011","R4":"100","R5":"101","R6":"110","FLAGS":"111","movf":"00010","subf":"00001","addf":"00000"}
 labels=[]
 variables=[]
 errornumbers=0
@@ -18,8 +18,8 @@ def errorhandling(x):
     linecount=-1
     hltcount=0
     global abcd
-    for line in fileinput.input():
-        abcd.append(line.rstrip())
+    file=open("Coproject.txt")
+    abcd=file.readlines()
     #print(abcd)
     n=len(abcd)
     errorlinecount=0
@@ -223,8 +223,11 @@ def Identify(assemblystatement):
             h = 8 - empty
             res = b.zfill(h + len(b))
             return(str(res))
-x=errorhandling(1)
+#x=errorhandling(1)
+x=0
 if x==0:
+    for line in fileinput.input():
+        abcd.append(line.rstrip())
     n=len(abcd)
     for i in range(0,n):
         w=''
@@ -307,4 +310,3 @@ if x==0:
                         MachineLanguage=MachineLanguage+Identify(w.rstrip())
                         MachineLanguage=MachineLanguage+"00000000000"
                     print(MachineLanguage)
-                    
