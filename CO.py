@@ -18,8 +18,8 @@ def errorhandling(x):
     linecount=-1
     hltcount=0
     global abcd
-    file=open("Coproject.txt")
-    abcd=file.readlines()
+    for line in fileinput.input():
+        abcd.append(line.rstrip())
     #print(abcd)
     n=len(abcd)
     errorlinecount=0
@@ -223,11 +223,9 @@ def Identify(assemblystatement):
             h = 8 - empty
             res = b.zfill(h + len(b))
             return(str(res))
-#x=errorhandling(1)
-x=0
+x=errorhandling(1)
+
 if x==0:
-    for line in fileinput.input():
-        abcd.append(line.rstrip())
     n=len(abcd)
     for i in range(0,n):
         w=''
